@@ -1,8 +1,4 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
+task.wait(15)
 local executor = Instance.new("ScreenGui")
 local Topbar = Instance.new("Frame")
 local Nombre = Instance.new("TextLabel")
