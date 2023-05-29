@@ -26,7 +26,7 @@ local Toychica = Instance.new("ImageButton")
 --Properties:
 
 executor.Name = "executor"
-executor.Parent = game.Players.Miauuwacho.PlayerGui
+executor.Parent = _G.P.PlayerGui
 executor.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 executor.ResetOnSpawn = false
 
@@ -387,10 +387,3 @@ local function RTVH_fake_script() -- config.Theme provider
 	end)
 end
 coroutine.wrap(RTVH_fake_script)()
-
-for _,v in pairs(game.Players.Miauuwacho.PlayerGui:GetChildren()) do
-if v.Name == "executor" and v ~= executor then
-print("destroyed?")
-v:Destroy()
-end
-end
