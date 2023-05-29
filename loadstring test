@@ -203,7 +203,7 @@ Kuromi.TileSize = UDim2.new(0.5, 0, 1, 0)
 Kuromi.MouseButton1Click:Connect(function()
 		x.Image = "rbxthumb://type=Asset&id=12155609393&w=150&h=150"
 		y.Image = "rbxthumb://type=Asset&id=11872476797&w=150&h=150" 
-		script.Parent.ImageLabel.Image = "rbxthumb://type=Asset&id=13027119561&w=150&h=150"  
+	 ImageLabel.Image = "rbxthumb://type=Asset&id=13027119561&w=150&h=150"  
 		for _,v in pairs(z) do
 			v.TextColor3 = Color3.fromRGB(85, 0, 255)
 		end
@@ -220,7 +220,7 @@ Toychica.TileSize = UDim2.new(0.5, 0, 1, 0)
 Toychica.MouseButton1Click:Connect(function()
 		x.Image = "rbxthumb://type=Asset&id=3552511549&w=150&h=150"
 		y.Image = "rbxthumb://type=Asset&id=5257430696&w=150&h=150" 
-		script.Parent.ImageLabel.Image = "rbxthumb://type=Asset&id=1303476758&w=150&h=150"  
+		ImageLabel.Image = "rbxthumb://type=Asset&id=1303476758&w=150&h=150"  
 		for _,v in pairs(z) do
 			v.TextColor3 = Color3.fromRGB(255, 255, 0)
 	end
