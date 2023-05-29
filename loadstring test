@@ -4,6 +4,7 @@ local TextLabel = Instance.new("TextLabel")
 teste.Name = "teste"
 teste.Parent = game.Players.Miauuwacho.PlayerGui
 teste.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+teste.ResetOnSpawn = false
 
 TextLabel.Parent = teste
 TextLabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
