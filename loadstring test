@@ -160,6 +160,7 @@ Display.TextColor3 = Color3.fromRGB(255, 255, 255)
 Display.TextSize = 14.000
 Display.TextXAlignment = Enum.TextXAlignment.Left
 Display.TextYAlignment = Enum.TextYAlignment.Top
+Display.RichText = true
 
 themes.Name = "themes"
 themes.Parent = Main
