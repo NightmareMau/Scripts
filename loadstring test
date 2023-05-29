@@ -1,3 +1,4 @@
+task.wait(game.Players.RespawnTime + 3)
 local teste = Instance.new("ScreenGui")
 local TextLabel = Instance.new("TextLabel")
 
