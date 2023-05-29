@@ -24,11 +24,7 @@ local Kuromi = Instance.new("ImageButton")
 local Toychica = Instance.new("ImageButton")
 
 --Properties:
-for _,v in pairs(game.Players.Miauuwacho.PlayerGui:GetChildren()) do
-if v.Name == "executor" and v ~= executor then
-v:Destroy()
-end
-end
+
 executor.Name = "executor"
 executor.Parent = game.Players.Miauuwacho.PlayerGui
 executor.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -391,3 +387,10 @@ local function RTVH_fake_script() -- config.Theme provider
 	end)
 end
 coroutine.wrap(RTVH_fake_script)()
+
+for _,v in pairs(game.Players.Miauuwacho.PlayerGui:GetChildren()) do
+if v.Name == "executor" and v ~= executor then
+print("destroyed?")
+v:Destroy()
+end
+end
