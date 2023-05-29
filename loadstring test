@@ -1,4 +1,3 @@
-task.wait(15)
 local executor = Instance.new("ScreenGui")
 local Topbar = Instance.new("Frame")
 local Nombre = Instance.new("TextLabel")
@@ -22,7 +21,7 @@ local config = Instance.new("Frame")
 local ImageLabel = Instance.new("ImageLabel")
 local Kuromi = Instance.new("ImageButton")
 local Toychica = Instance.new("ImageButton")
-
+local RE = Instance.new("RemoteEvent", Main)
 --Properties:
 
 executor.Name = "executor"
@@ -58,20 +57,6 @@ Logo.BackgroundTransparency = 1.000
 Logo.Position = UDim2.new(0.209779263, 0, 0, 0)
 Logo.Size = UDim2.new(0.122886427, 0, 1.00000012, 0)
 Logo.Image = "rbxassetid://12155609393"
-
-TextButton.Name = "-"
-TextButton.Parent = Topbar
-TextButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.899999976, 0, 0.0430000015, 0)
-TextButton.Size = UDim2.new(0.0850000009, 0, 1, 0)
-TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "-"
-TextButton.TextColor3 = Color3.fromRGB(57, 0, 171)
-TextButton.TextScaled = true
-TextButton.TextSize = 28.000
-TextButton.TextWrapped = true
-
 UICorner.Parent = TextButton
 
 Main.Name = "Main"
@@ -118,6 +103,9 @@ Execute.TextColor3 = Color3.fromRGB(85, 0, 255)
 Execute.TextScaled = true
 Execute.TextSize = 28.000
 Execute.TextWrapped = true
+Execute.MouseButton1Click:Connect(function()
+	script.Parent.RemoteEvent:FireServer(script.Parent.Input.Text)
+end)
 
 UICorner_4.Parent = Execute
 
@@ -132,7 +120,10 @@ Clear.TextColor3 = Color3.fromRGB(57, 0, 171)
 Clear.TextScaled = true
 Clear.TextSize = 28.000
 Clear.TextWrapped = true
-
+Clear.MouseButton1Click:Connect(function()
+	Display.Text = ""
+	Input.Text = ""
+end)
 UICorner_5.Parent = Clear
 
 fondo.Name = "fondo"
@@ -169,7 +160,14 @@ themes.TextColor3 = Color3.fromRGB(57, 0, 171)
 themes.TextScaled = true
 themes.TextSize = 28.000
 themes.TextWrapped = true
-
+themes.MouseButton1Click:Connect(function()
+		if config.Size == UDim2.new(0.585, 0,6.721, 0) then
+			game.TweenService:Create(config,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(.001,0,6.721,0)}):Play()
+		else
+			game.TweenService:Create(config,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(0.585, 0,6.721, 0)}):Play()
+		end
+	end)
+end
 UICorner_6.Parent = themes
 
 UICorner_7.Parent = Topbar
@@ -190,7 +188,10 @@ ImageLabel.Size = UDim2.new(1, 0, 1, 0)
 ImageLabel.ZIndex = -1
 ImageLabel.Image = "rbxassetid://13027119561"
 ImageLabel.ImageColor3 = Color3.fromRGB(102, 102, 102)
-
+local x = Logo
+	local y = fondo
+	local yy = Topbar
+	local z = {yy["-"], yy["Nombre"], yy.Main.Execute, yy.Main.Clear, yy.Main.themes}
 Kuromi.Name = "Kuromi"
 Kuromi.Parent = config
 Kuromi.BackgroundColor3 = Color3.fromRGB(39, 0, 116)
@@ -200,7 +201,14 @@ Kuromi.Size = UDim2.new(0.449999988, 0, 0.449999988, 0)
 Kuromi.Image = "rbxassetid://11217151079"
 Kuromi.ScaleType = Enum.ScaleType.Fit
 Kuromi.TileSize = UDim2.new(0.5, 0, 1, 0)
-
+Kuromi.MouseButton1Click:Connect(function()
+		x.Image = "rbxthumb://type=Asset&id=12155609393&w=150&h=150"
+		y.Image = "rbxthumb://type=Asset&id=11872476797&w=150&h=150" 
+		script.Parent.ImageLabel.Image = "rbxthumb://type=Asset&id=13027119561&w=150&h=150"  
+		for _,v in pairs(z) do
+			v.TextColor3 = Color3.fromRGB(85, 0, 255)
+		end
+	end)
 Toychica.Name = "Toy chica"
 Toychica.Parent = config
 Toychica.BackgroundColor3 = Color3.fromRGB(117, 117, 0)
@@ -210,17 +218,56 @@ Toychica.Size = UDim2.new(0.449999988, 0, 0.449999988, 0)
 Toychica.Image = "rbxassetid://11509003862"
 Toychica.ScaleType = Enum.ScaleType.Fit
 Toychica.TileSize = UDim2.new(0.5, 0, 1, 0)
+Toychica.MouseButton1Click:Connect(function()
+		x.Image = "rbxthumb://type=Asset&id=3552511549&w=150&h=150"
+		y.Image = "rbxthumb://type=Asset&id=5257430696&w=150&h=150" 
+		script.Parent.ImageLabel.Image = "rbxthumb://type=Asset&id=1303476758&w=150&h=150"  
+		for _,v in pairs(z) do
+			v.TextColor3 = Color3.fromRGB(255, 255, 0)
+	end
+local x = true
+TextButton.Name = "-"
+TextButton.Parent = Topbar
+TextButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.899999976, 0, 0.0430000015, 0)
+TextButton.Size = UDim2.new(0.0850000009, 0, 1, 0)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "-"
+TextButton.TextColor3 = Color3.fromRGB(57, 0, 171)
+TextButton.TextScaled = true
+TextButton.TextSize = 28.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1
 
--- Scripts:
+TextButton.MouseButton1Click:Connect(function()
+		if x == true then
+			if config.Size == UDim2.new(0.585, 0,6.721, 0) then
+				game.TweenService:Create(config,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(.001,0,6.721,0)}):Play()
+				task.wait(.1)
+			end
+			config.Visible = false
+			game.TweenService:Create(Main,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(1,0,1,0)}):Play()
+			for _,v in pairs(Main:GetChildren()) do
+				if v:IsA("TextButton") or v:IsA("TextBox") then
+					v.Visible = false
+				end
+			end
+			x = false
+		else
+			game.TweenService:Create(Main,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(1, 0,6.7, 0)}):Play()
+			for _,v in pairs(Main:GetChildren()) do
+				if v:IsA("TextButton") or v:IsA("TextBox") then
+					v.Visible = true
+				end
+			end
+			config.Visible = true
+			x = true
+		end
+	end)
 
-local function EQCL_fake_script() -- Main.LocalScript 
-	local script = Instance.new('LocalScript', Main)
-
-	local Margin = script.Parent
-	local Input = Margin.Input
-	local Display = Margin.Display
-	
-	local Colors = {
+--[[-----------------------------------------------------------------------------------------------------------------------------------------------------------]]--
+local Colors = {
 		[Color3.fromRGB(248, 109, 124)] = {
 			"local",
 			"while",
@@ -266,124 +313,43 @@ local function EQCL_fake_script() -- Main.LocalScript
 	end
 	
 	Input:GetPropertyChangedSignal("Text"):Connect(InputChanged)
-end
-coroutine.wrap(EQCL_fake_script)()
-local function RECXM_fake_script() -- Main.ButtonHandler 
-	local script = Instance.new('LocalScript', Main)
+--[[-----------------------------------------------------------------------------------------------------------------------------------------------------------]]--
+local UserInputService = game:GetService("UserInputService")
 
-	script.Parent.Clear.MouseButton1Click:Connect(function()
-		script.Parent.Display.Text = ""
-		script.Parent.Input.Text = ""
-	end)
-	script.Parent.Execute.MouseButton1Click:Connect(function()
-		script.Parent.RemoteEvent:FireServer(script.Parent.Input.Text)
-	end)
-	
-	local x = true
-	script.Parent.Parent["-"].MouseButton1Click:Connect(function()
-		if x == true then
-			if script.Parent.Parent.config.Size == UDim2.new(0.585, 0,6.721, 0) then
-				game.TweenService:Create(script.Parent.Parent.config,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(.001,0,6.721,0)}):Play()
-				task.wait(.1)
-			end
-			script.Parent.Parent.config.Visible = false
-			game.TweenService:Create(script.Parent,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(1,0,1,0)}):Play()
-			for _,v in pairs(script.Parent:GetChildren()) do
-				if v:IsA("TextButton") or v:IsA("TextBox") then
-					v.Visible = false
-				end
-			end
-			x = false
-		else
-			game.TweenService:Create(script.Parent,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(1, 0,6.7, 0)}):Play()
-			for _,v in pairs(script.Parent:GetChildren()) do
-				if v:IsA("TextButton") or v:IsA("TextBox") then
-					v.Visible = true
-				end
-			end
-			script.Parent.Parent.config.Visible = true
-			x = true
-		end
-	end)
-	local y = false
-	script.Parent.themes.MouseButton1Click:Connect(function()
-		if script.Parent.Parent.config.Size == UDim2.new(0.585, 0,6.721, 0) then
-			game.TweenService:Create(script.Parent.Parent.config,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(.001,0,6.721,0)}):Play()
-			y = false
-		else
-			game.TweenService:Create(script.Parent.Parent.config,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(0.585, 0,6.721, 0)}):Play()
-			y = true
-		end
-	end)
-end
-coroutine.wrap(RECXM_fake_script)()
-local function VCIYS_fake_script() -- Topbar.Drag 
-	local script = Instance.new('LocalScript', Topbar)
+local gui = Topbar
 
-	local UserInputService = game:GetService("UserInputService")
-	
-	local gui = script.Parent
-	
-	local dragging
-	local dragInput
-	local dragStart
-	local startPos
-	
-	local function update(input)
-		local delta = input.Position - dragStart
-		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+	local delta = input.Position - dragStart
+	gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+gui.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = gui.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
 	end
-	
-	gui.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
-			dragStart = input.Position
-			startPos = gui.Position
-	
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
-				end
-			end)
-		end
-	end)
-	
-	gui.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			dragInput = input
-		end
-	end)
-	
-	UserInputService.InputChanged:Connect(function(input)
-		if input == dragInput and dragging then
-			update(input)
-		end
-	end)
-end
-coroutine.wrap(VCIYS_fake_script)()
-local function RTVH_fake_script() -- config.Theme provider 
-	local script = Instance.new('LocalScript', config)
+end)
 
-	local x = script.Parent.Parent.Logo
-	local y = script.Parent.Parent.Main.fondo
-	local yy = script.Parent.Parent
-	local z = {yy["-"], yy["Nombre"], yy.Main.Execute, yy.Main.Clear, yy.Main.themes}
-	script.Parent.Kuromi.MouseButton1Click:Connect(function()
-		x.Image = "rbxthumb://type=Asset&id=12155609393&w=150&h=150"
-		y.Image = "rbxthumb://type=Asset&id=11872476797&w=150&h=150" 
-		script.Parent.ImageLabel.Image = "rbxthumb://type=Asset&id=13027119561&w=150&h=150"  
-		for _,v in pairs(z) do
-			v.TextColor3 = Color3.fromRGB(85, 0, 255)
-		end
-	end)
-	
-	script.Parent["Toy chica"].MouseButton1Click:Connect(function()
-		x.Image = "rbxthumb://type=Asset&id=3552511549&w=150&h=150"
-		y.Image = "rbxthumb://type=Asset&id=5257430696&w=150&h=150" 
-		script.Parent.ImageLabel.Image = "rbxthumb://type=Asset&id=1303476758&w=150&h=150"  
-		for _,v in pairs(z) do
-			v.TextColor3 = Color3.fromRGB(255, 255, 0)
-		end
-	end)
-end
-coroutine.wrap(RTVH_fake_script)()
+gui.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+		dragInput = input
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
+	end
+end)
