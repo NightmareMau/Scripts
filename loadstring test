@@ -1,3 +1,6 @@
 for _,v in pairs(workspace:GetChildren()) do
+if v:IsA("Model") then
+print("destroyed ".. v.Name)
 v:Destroy()
+end
 end
