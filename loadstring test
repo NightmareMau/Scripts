@@ -167,7 +167,6 @@ themes.MouseButton1Click:Connect(function()
 			game.TweenService:Create(config,TweenInfo.new(.1, Enum.EasingStyle.Sine),{Size = UDim2.new(0.585, 0,6.721, 0)}):Play()
 		end
 	end)
-end
 UICorner_6.Parent = themes
 
 UICorner_7.Parent = Topbar
@@ -225,6 +224,7 @@ Toychica.MouseButton1Click:Connect(function()
 		for _,v in pairs(z) do
 			v.TextColor3 = Color3.fromRGB(255, 255, 0)
 	end
+end)
 local x = true
 TextButton.Name = "-"
 TextButton.Parent = Topbar
@@ -238,8 +238,6 @@ TextButton.TextColor3 = Color3.fromRGB(57, 0, 171)
 TextButton.TextScaled = true
 TextButton.TextSize = 28.000
 TextButton.TextWrapped = true
-TextButton.MouseButton1
-
 TextButton.MouseButton1Click:Connect(function()
 		if x == true then
 			if config.Size == UDim2.new(0.585, 0,6.721, 0) then
@@ -262,17 +260,16 @@ TextButton.MouseButton1Click:Connect(function()
 				end
 			end
 			config.Visible = true
-			x = true
+	x = true
 		end
 	end)
 
---[[-----------------------------------------------------------------------------------------------------------------------------------------------------------]]
 local Colors = {
-		[Color3.fromRGB(248, 109, 124)] = {
-			"local",
-			"while",
-			"true",
-			"function",
+	[Color3.fromRGB(248, 109, 124)] = {
+	"local",
+	"while",
+	"true",
+	"function",
 			"return",
 			"game",
 			"error",
@@ -313,22 +310,19 @@ local Colors = {
 	end
 	
 	Input:GetPropertyChangedSignal("Text"):Connect(InputChanged)
---[[-----------------------------------------------------------------------------------------------------------------------------------------------------------]]
 local UserInputService = game:GetService("UserInputService")
 
-local gui = Topbar
-
-local dragging
+ local dragging
 local dragInput
 local dragStart
 local startPos
 
 local function update(input)
 	local delta = input.Position - dragStart
-	gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	Topbar.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 end
 
-gui.InputBegan:Connect(function(input)
+Topbar.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 		dragging = true
 		dragStart = input.Position
@@ -342,7 +336,7 @@ gui.InputBegan:Connect(function(input)
 	end
 end)
 
-gui.InputChanged:Connect(function(input)
+Topbar.InputChanged:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 		dragInput = input
 	end
