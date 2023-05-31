@@ -104,7 +104,7 @@ Execute.TextScaled = true
 Execute.TextSize = 28.000
 Execute.TextWrapped = true
 Execute.MouseButton1Click:Connect(function()
-	RE:FireServer(script.Parent.Input.Text)
+	RE:FireServer(Input.Text)
 end)
 
 UICorner_4.Parent = Execute
