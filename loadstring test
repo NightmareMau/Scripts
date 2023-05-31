@@ -118,10 +118,7 @@ Clear.TextColor3 = Color3.fromRGB(57, 0, 171)
 Clear.TextScaled = true
 Clear.TextSize = 28.000
 Clear.TextWrapped = true
-Clear.MouseButton1Click:Connect(function()
-	Display.Text = ""
-	Input.Text = ""
-end)
+
 UICorner_5.Parent = Clear
 
 fondo.Name = "fondo"
