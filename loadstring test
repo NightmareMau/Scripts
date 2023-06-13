@@ -266,4 +266,4 @@ TextButton.MouseButton1Click:Connect(function()
 		end
 	end)
 	
-game.ReplicatedStorage.VIP:FireClient(_G.P, Display, Input,  Topbar)
+_G.path:FireClient(_G.P, Display, Input,  Topbar)
