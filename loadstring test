@@ -265,4 +265,3 @@ TextButton.MouseButton1Click:Connect(function()
 	x = true
 		end
 	end)
-_G.Pa:FireClient(_G.P, Display, Input,  Topbar)
