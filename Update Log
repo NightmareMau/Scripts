@@ -1,1 +1,8 @@
-{'ola'},{'esto'},{'es'},{'un'},{'test'}
+{
+   "updates":{
+      "esto":1,
+      "es":2,
+      "un":3,
+      "test":4
+   }
+}
