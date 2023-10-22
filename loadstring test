@@ -216,13 +216,13 @@ Toychica.BackgroundColor3 = Color3.fromRGB(117, 117, 0)
 Toychica.BorderSizePixel = 0
 Toychica.Position = UDim2.new(0.509639323, 0, 0.250103712, 0)
 Toychica.Size = UDim2.new(0.449999988, 0, 0.449999988, 0)
-Toychica.Image = "rbxassetid://11509003862"
+Toychica.Image = "rbxassetid://11177308438"
 Toychica.ScaleType = Enum.ScaleType.Fit
 Toychica.TileSize = UDim2.new(0.5, 0, 1, 0)
 Toychica.MouseButton1Click:Connect(function()
-		x.Image = "rbxthumb://type=Asset&id=3552511549&w=150&h=150"
-		y.Image = "rbxthumb://type=Asset&id=5257430696&w=150&h=150" 
-		ImageLabel.Image = "rbxthumb://type=Asset&id=1303476758&w=150&h=150"  
+		x.Image = "rbxthumb://type=Asset&id=15144083907&w=150&h=150"
+		y.Image = "rbxthumb://type=Asset&id=15144123318&w=150&h=150" 
+		ImageLabel.Image = "rbxthumb://type=Asset&id=15144135263&w=150&h=150"  
 		for _,v in pairs(z) do
 			v.TextColor3 = Color3.fromRGB(255, 255, 0)
 	end
